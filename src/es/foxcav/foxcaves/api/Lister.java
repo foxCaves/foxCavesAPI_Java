@@ -41,7 +41,7 @@ public class Lister extends Authenticatable {
 		return ret;
 	}
 
-	public class FileInfo
+	public static class FileInfo
 	{
 		public final String id;
 		public final String name;

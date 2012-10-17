@@ -36,6 +36,7 @@ public abstract class Authenticatable {
 		httpURLConnection.setRequestProperty("X-Foxcaves-Password", password);
 		httpURLConnection.setConnectTimeout(10000);
 		httpURLConnection.setReadTimeout(20000);
+		httpURLConnection.setUseCaches(false);
 		return httpURLConnection;
 	}
 }
