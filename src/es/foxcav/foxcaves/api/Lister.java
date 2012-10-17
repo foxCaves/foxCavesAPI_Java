@@ -29,7 +29,11 @@ public class Lister extends Authenticatable {
 		while ((curLine = reader.readLine()) != null)
 		{
 			String[] lineSplit = curLine.split(">");
-			ret.add(new FileInfo(lineSplit[0], lineSplit[1], lineSplit[2], Long.parseLong(lineSplit[3]), lineSplit[4]));
+			String thumbnail = null;
+			if(lineSplit.length > 4) {
+				thumbnail = lineSplit[4];
+			}
+			ret.add(new FileInfo(lineSplit[0], lineSplit[1], lineSplit[2], Long.parseLong(lineSplit[3]), thumbnail));
 		}
 
 		reader.close();
