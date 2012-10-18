@@ -117,13 +117,15 @@ public class Uploader extends Authenticatable {
 
 			byte[] buffer = new byte[256];
 			int readb;
+			int totalread = 0;
 			while (isRunning) {
 				readb = stream.read(buffer);
 				if (readb <= 0) break;
+				totalread += readb;
 				outputStream.write(buffer, 0, readb);
 				outputStream.flush();
 
-				uploadProgress(uploadInfo, (((double)readb) / ((double)length)));
+				uploadProgress(uploadInfo, (((double)totalread) / ((double)length)));
 			}
 
 			if(!isRunning) {
