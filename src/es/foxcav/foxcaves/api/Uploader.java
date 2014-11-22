@@ -53,9 +53,9 @@ public class Uploader extends Authenticatable {
 		isRunning = false;
 	}
 
-	private UploadInfo MakeUploadInfo(String filename, InputStream stream) {
+	private UploadInfo makeUploadInfo(String filename, InputStream stream) {
 		if (username == null) {
-			throw new RuntimeException("You must specify credentials either in the ctor or with SetCredentials first!");
+			throw new RuntimeException("You must specify credentials either in the ctor or with setCredentials first!");
 		}
 
 		char c;
@@ -72,12 +72,12 @@ public class Uploader extends Authenticatable {
 	}
 
 	public final String queueSync(String filename, InputStream stream) {
-		UploadInfo uploadInfo = MakeUploadInfo(filename, stream);
+		UploadInfo uploadInfo = makeUploadInfo(filename, stream);
 		return uploadThreadInt(uploadInfo);
 	}
 
 	public final UploadInfo queueAsync(String filename, InputStream stream) {
-		UploadInfo uploadInfo = MakeUploadInfo(filename, stream);
+		UploadInfo uploadInfo = makeUploadInfo(filename, stream);
 		uploads.add(uploadInfo);
 		return uploadInfo;
 	}
