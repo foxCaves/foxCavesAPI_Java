@@ -62,7 +62,7 @@ public class Uploader extends Authenticatable {
 		char[] cna = filename.toCharArray();
 		for (int i = 0; i < cna.length; i++) {
 			c = cna[i];
-			if (c == '<' || c == '>' || c == '\n' || c == '\t' || c == '\r' || c == '\0') {
+			if (c == '<' || c == '>' || c == '\n' || c == '\t' || c == '\r' || c == '\0' || c == '#') {
 				cna[i] = '_';
 			}
 		}
